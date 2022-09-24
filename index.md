@@ -1,2 +1,2 @@
-### This is a Link to acces:
+### This is a Link to access:
 [the second page](secondpage.md)
