@@ -1,8 +1,8 @@
-### This is a Link to access:
+### This is a second page to access:
 [the second page](secondpage.md)
 
-### how about a link to access: 
+### how about an image to see: 
 [Image](lab-report-1-week-0.md)
 
-### an embeded version of the screenshot
+### an embedded version of the screenshot
 ![Image](PracticeScreenshot.png)
