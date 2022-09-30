@@ -1,5 +1,4 @@
-## Hello World!
-Kitchen supplies:
+## Kitchen supplies:
 1. pans
     * oil
 2. forks
