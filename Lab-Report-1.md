@@ -81,3 +81,13 @@ Now when you try to `ssh` or `scp` into the server, you will not be prompted for
 
 ### Step 6: Optimizing Remote Running
 
+Let's say you changed `WhereAmI.java` locally, but want to run it on the remote server. There are some ways to write commands in terminal to better and faster:
+* by adding quotes around a command at the end of an `ssh` command, the command will be executed after logged into the remote server. Here is an example:
+![Image](QuotesInCommands.png)
+
+I `ssh`'d into the remote server and listed out the files, and notice that I am still not logged in.
+
+* If I add semicolons after each command, I can execute multiple commands at the same time. I can try combining this with the quotes to copy and run the edited `WhereAmI.java` file all in the same line! See if you can do it yourself, and look in the picture below for the answer.
+
+
+![Image](FinalAnswer.png)
