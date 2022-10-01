@@ -33,8 +33,8 @@ I listed out the directories, then showed where my working directory is, made a 
 
 Some other useful commands to try (some of which I already did!):
 * `cd ~`
-* ` cd`
-* ` cd ..`
+* `cd`
+* `cd ..`
 * `ls -lat`
 * `ls <directory> `where `<directory>` is something similar to `/home/linux/ieng6/cs15lfa22/cs15lfa22cj`, `cj` being different letters dependent on the person
 
@@ -43,8 +43,19 @@ Some other useful commands to try (some of which I already did!):
 
 The above commands were all for work locally, but now that we can access another computer remotely, we can transfer files between them. We'll create a java program first that helps show us where we are in our directories, and copy that file over from our local computer to the remote one.
 We'll name the file `WhereAmI.java`
+
 Here is the code:
+
 ![Image](JavaCode.png)
 
-To run this file, make sure you are in the directory where the .java file is located, and then type in terminal:
+To run this file, make sure you are in the directory where the .java file is located, and then, if you have java, type in terminal:
+
 ![Image](JavaCompile.png)
+
+Now, let's copy the file that was just made to the remote computer we ssh'd into earlier. To do this, write the command:
+`scp WhereAmI.java cs15lfa22cj@ieng6.ucsd.edu:~/`
+Replace the cj with the letters from your username, and enter your password when prompted.
+
+From here, `ssh` back into ieng6 like you did earlier, and type `ls`. You should see `WhereAmI.java` in the directory. Run the program with the java instructions from above. If you weren't able to earlier, you can do so now.
+Your output should look different from when you ran the java program locally (if you could). The program is outputting the operating system type, the user name, and home directory name, and the current working directory name.
+
