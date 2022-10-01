@@ -30,3 +30,21 @@ This is what they do when I am logged in:
 ![Image](SomeCommands.png)
 
 I listed out the directories, then showed where my working directory is, made a directory(or folder) called "untitled", went into it, and listed out the files in it. There are no files, so I backed out of the directory, and then copied "WhereAmI.java" into "untitled". I then went back into "untitled" folder and listed out the files, which now has WhereAmI.java.
+
+Some other useful commands to try (some of which I already did!):
+* `cd ~`
+* ` cd`
+* ` cd ..`
+* `ls -lat`
+* `ls <directory> `where `<directory>` is something similar to `/home/linux/ieng6/cs15lfa22/cs15lfa22cj`, `cj` being different letters dependent on the person
+
+
+### Steph 5: Moving Files with scp
+
+The above commands were all for work locally, but now that we can access another computer remotely, we can transfer files between them. We'll create a java program first that helps show us where we are in our directories, and copy that file over from our local computer to the remote one.
+We'll name the file `WhereAmI.java`
+Here is the code:
+![Image](JavaCode.png)
+
+To run this file, make sure you are in the directory where the .java file is located, and then type in terminal:
+![Image](JavaCompile.png)
