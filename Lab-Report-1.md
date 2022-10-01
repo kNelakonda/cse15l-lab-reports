@@ -59,3 +59,25 @@ Replace the cj with the letters from your username, and enter your password when
 From here, `ssh` back into ieng6 like you did earlier, and type `ls`. You should see `WhereAmI.java` in the directory. Run the program with the java instructions from above. If you weren't able to earlier, you can do so now.
 Your output should look different from when you ran the java program locally (if you could). The program is outputting the operating system type, the user name, and home directory name, and the current working directory name.
 
+### Step 5: Setting an SSH Key
+
+Since remote connecting to ieng6 servers takes a long time, we're going to create ssh keys to speed up the process moving forward. `ssh-keygen` will create a pair of files, public and private keys.
+Follow the steps in the image below, ignoring the part about `Overwrite` (It should not appear when you run this program)
+
+![Image](SSHKey.png)
+
+For people on Windows there would be an extra `ssh-add` step that can be followed [here](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_keymanagement#user-key-generation)
+
+Now we are going to make a `.ssh` directory in the server and copy the public key there. `ssh` into the server and type the following:
+> `mkdir .ssh`
+
+Then go back into your client, type the following command (replace `/Users/kavinelakonda/.ssh/id_rsa.pub` with the user path)
+> `scp /Users/kavinelakonda/.ssh/id_rsa.pub cs15lfa22cj@ieng6.ucsd.edu:~/.ssh/authorized_keys`
+
+Now when you try to `ssh` or `scp` into the server, you will not be prompted for the password. Here is an example of me trying to `ssh` into the server. Notice, I am not prompted for a password anymore!
+
+![Image](NoPassword.png)
+
+
+### Step 6: Optimizing Remote Running
+
