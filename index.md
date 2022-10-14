@@ -1,6 +1,9 @@
 ## Below is the link to the first Lab
 [Lab Report 1](Lab-Report-1.md)
 
+## This is the second lab
+[Lab Report 2](Lab-Report-2.md)
+
 ### This is a second page to access:
 [the second page](secondpage.md)
 
