@@ -63,6 +63,7 @@ Here are some of the pictures of my program in action and what is happening in t
 ### Part 2: The Bugs from Lab 3
 
 **The First Bug From ListExamples (merge)**
+
 Below is the test I ran for the merge method in ListExamples.java:
 
 ```
