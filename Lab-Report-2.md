@@ -62,7 +62,7 @@ Here are some of the pictures of my program in action and what is happening in t
 
 ### Part 2: The Bugs from Lab 3
 
-**A Bug From ListExamples**
+**The First Bug From ListExamples (merge)**
 Below is the test I ran for the merge method in ListExamples.java:
 
 ```
@@ -144,4 +144,58 @@ static List<String> merge(List<String> list1, List<String> list2) {
 ```
 Above is the fix. kndex2 was always less that list2.size, since index1 was being incremented. The result was an infinite loop and you see the OutOfMemoryError.
 
-**A Bug from 
+**The Second Bug from ListExamples(filter)**
+
+Below is a test I ran for the filter method in ListExamples.java
+```
+ @Test
+    public void filterTest(){
+        PluralChecker pc = new PluralChecker();
+        List<String> starter = new ArrayList<String>();
+        starter.add("brownies");
+        starter.add("cookie");
+        starter.add("cakes");
+        starter.add("chocolates");
+        starter.add("pie");
+        List<String> ender = ListExamples.filter(starter,pc);
+        String[] expected = {"brownies", "cakes", "chocolates"};
+        assertArrayEquals(expected, ender.toArray());
+    }
+```
+
+When I run the test, I receive the symptom below. The elements differ from expected, a ComparisonFailure:
+```
+There was 1 failure:
+1) filterTest(ListTests)
+arrays first differed at element [0]; expected:<[browni]es> but was:<[chocolat]es>
+        at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:78)
+        at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:28)
+        at org.junit.Assert.internalArrayEquals(Assert.java:534)
+        at org.junit.Assert.assertArrayEquals(Assert.java:285)
+        at org.junit.Assert.assertArrayEquals(Assert.java:300)
+        at ListTests.filterTest(ListTests.java:36)
+        ... 30 trimmed
+Caused by: org.junit.ComparisonFailure: expected:<[browni]es> but was:<[chocolat]es>
+        at org.junit.Assert.assertEquals(Assert.java:117)
+        at org.junit.Assert.assertEquals(Assert.java:146)
+        at org.junit.internal.ExactComparisonCriteria.assertElementsEqual(ExactComparisonCriteria.java:8)
+        at org.junit.internal.ComparisonCriteria.arrayEquals(ComparisonCriteria.java:76)
+        ... 36 more
+
+FAILURES!!!
+```
+The bug was that the code adds the String to the ArrayList at the beginning, when the String is supposed to be added to the end:
+```
+  static List<String> filter(List<String> list, StringChecker sc) {
+    List<String> result = new ArrayList<>();
+    for(String s: list) {
+      if(sc.checkString(s)) {
+        result.add(0, s);
+      }
+    }
+    return result;
+  }
+```
+The line `result.add(0, s)` adds to the front of the list. The fix is to simply use the `add` method without specifying the index, and it will automatically be added to the end.
+
+The connection is that because the result has the Strings in reverse order, the test says the elements differ from expected and there is a ComparisonFailure between expected and the output.
