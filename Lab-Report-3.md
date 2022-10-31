@@ -7,11 +7,11 @@ For example, the following searches within the current working directory all the
 ```
 $ find . -size -10k
 ```
-The "." specifies the directory, the "-size" option tells us we want to find files of a certain size, and "-10k" means everything less than 10 kilobytes, with "-" meaning less than, "10" being the size, and "k" being the size. If we want to check for larger files, the following letters are for other sized files:
-* c - bytes
-* k - kilobytes
-* M - megabytes
-* G - gigabytes
+The `.` specifies the directory, the `-size` option tells us we want to find files of a certain size, and `-10k` means everything less than 10 kilobytes, with `-` meaning less than, `10` being the size, and `k` being the size. If we want to check for larger files, the following letters are for other sized files:
+c - bytes
+k - kilobytes
+M - megabytes
+G - gigabytes
 
 Here is the output when we type in the command to search for all the files within ./biomed that are less than 10 kilobytes:
 ```
@@ -52,17 +52,17 @@ $ find ./biomed -size +10k -size -15k
 ./biomed/1471-2350-2-8.txt
 ./biomed/1471-2121-2-3.txt
 ```
-(Wow, that is a lot!)
+I can put `-size` twice as options and it will specify the range between the two.
 
-Let's combine this with the -name option, and see if we can find any within all of ./technical that are smaller than 1 kilobyte, but only .txt files:
+Let's combine this with the `-name` option, and see if we can find any within all of `./technical` that are smaller than 1 kilobyte, but only .txt files:
 ```
 $ find . -size -1k -name "*.txt"  
 ./plos/pmed.0020191.txt
 ./plos/pmed.0020226.txt
 ```
-(Oh, only two in ./plos)
+This recursively found all the .txt files that are less than 1 kilobyte, and prints out the path starting from the working directory.
 
-2. If I want, I can find all the subdirectories in my working directory to see how many folders there are and what the names of them are. "-type" is the option, and the argument is "d", for directories. I can also do "f" for all the files.
+2. If I want, I can find all the subdirectories in my working directory to see how many folders there are and what the names of them are. `-type` is the option, and the argument is "d", for directories. I can also do "f" for all the files.
 Let's try this on the command line:
 ```
 $ find . -type d           
@@ -78,8 +78,9 @@ $ find . -type d
 ./biomed
 ./911report
 ```
+This printed out all the subdirectories that are within `/technical`, but none of the files, since I specified d
 
-There are a lot within /government, so let's boil it down to only the directories within /government:
+There are a lot within `/government`, so let's boil it down to only the directories within `/government`:
 ```
 $ find ./government -type d        
 ./government
@@ -98,5 +99,32 @@ $ find . -type d -name "A*"
 ./government/Alcohol_Problems
 ```
 
-3. 
+3. I am trying to find some files that were written in September, and they must have the word "September" in the name, but I'm not sure if it was capitalized. Luckily, there's an option for finding files regardless of capitalization:
+```
+$ find ./government -iname "sept*.txt" 
+./government/Gen_Account_Office/Sept27-2002_d02966.txt
+./government/Gen_Account_Office/Sept14-2002_d011070.txt
+```
+There are two files which have "Sept" in the file name, and the entire path from the working directory is listed. The "*" allowed for autocompleting the rest of the name of the .txt file.
 
+There's another government file that has to do with Ontario, so let's try finding it:
+```
+$ find ./government -name "Ontario*.txt" 
+$ 
+```
+Using the `-iname` option is case insensitive as opposed to `-name` which is case sensitive.
+Looks like more of it was capitalized, so let's use `-inname` so our search is case insensitive:
+```
+$ find ./government -iname "Ontario*.txt"
+./government/About_LSC/ONTARIO_LEGAL_AID_SERIES.txt
+```
+
+I'm going to go ahead and delete that file now:
+```
+$ find ./government -iname "Ontario*.txt" -exec rm {} \;
+$ find ./government -iname "Ontario*.txt"                  
+$
+```
+The last line confirms that I cannot find it anymore, and it is now deleted. I use the `-exec` to execute a command, which I choose as `rm` to delete files. I combined the `-iname` option along with the `-exec` option to not only find the file, but delete it as well.
+
+There are plenty of useful applications for find, and it might even be easier to find some files and directories over terminal than through the Finder if you know the proper commands.
