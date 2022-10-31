@@ -96,6 +96,7 @@ $ find . -type d -name "A*"
 ./government/About_LSC
 ./government/Alcohol_Problems
 ```
+To find the directories that start with the letter "A", we add the option `-name` and the name of what we are looking for. We need to make sure we capitalize A in the command, which is why A is capitalized. `-name` is case sensitive. There is, however, a way to find things without case sensitivity, which leads to another option...
 
 #### 3. -iname
 I am trying to find some files that were written in September, and they must have the word "September" in the name, but I'm not sure if it was capitalized. Luckily, there's an option for finding files regardless of capitalization:
