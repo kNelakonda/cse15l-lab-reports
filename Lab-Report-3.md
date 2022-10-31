@@ -113,7 +113,7 @@ $ find ./government -name "Ontario*.txt"
 $ 
 ```
 Using the `-iname` option is case insensitive as opposed to `-name` which is case sensitive.
-Looks like more of it was capitalized, so let's use `-inname` so our search is case insensitive:
+Looks like more of "Ontario" was capitalized, so let's use `-inname` so our search is case insensitive:
 ```
 $ find ./government -iname "Ontario*.txt"
 ./government/About_LSC/ONTARIO_LEGAL_AID_SERIES.txt
