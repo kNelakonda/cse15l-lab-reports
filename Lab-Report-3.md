@@ -2,8 +2,8 @@
 ## Researching Commands
 ### News ways to use the *find* command on the command line
 
-1. One interesting way I was able to use find was to only find files of a certain size, or within the boundaries of a certain size.
-For example, the following searches within the current working directory all the files that are less than 10 kilobytes
+#### 1. -size
+One interesting way I was able to use find was to only find files of a certain size, or within the boundaries of a certain size. For example, the following searches within the current working directory all the files that are less than 10 kilobytes
 ```
 $ find . -size -10k
 ```
@@ -12,7 +12,6 @@ c - bytes
 k - kilobytes
 M - megabytes
 G - gigabytes
-
 Here is the output when we type in the command to search for all the files within ./biomed that are less than 10 kilobytes:
 ```
 $ find ./biomed -size -10k
@@ -53,7 +52,6 @@ $ find ./biomed -size +10k -size -15k
 ./biomed/1471-2121-2-3.txt
 ```
 I can put `-size` twice as options and it will specify the range between the two.
-
 Let's combine this with the `-name` option, and see if we can find any within all of `./technical` that are smaller than 1 kilobyte, but only .txt files:
 ```
 $ find . -size -1k -name "*.txt"  
@@ -61,8 +59,8 @@ $ find . -size -1k -name "*.txt"
 ./plos/pmed.0020226.txt
 ```
 This recursively found all the .txt files that are less than 1 kilobyte, and prints out the path starting from the working directory.
-
-2. If I want, I can find all the subdirectories in my working directory to see how many folders there are and what the names of them are. `-type` is the option, and the argument is "d", for directories. I can also do "f" for all the files.
+#### 2. -type
+If I want, I can find all the subdirectories in my working directory to see how many folders there are and what the names of them are. `-type` is the option, and the argument is "d", for directories. I can also do "f" for all the files.
 Let's try this on the command line:
 ```
 $ find . -type d           
@@ -99,7 +97,8 @@ $ find . -type d -name "A*"
 ./government/Alcohol_Problems
 ```
 
-3. I am trying to find some files that were written in September, and they must have the word "September" in the name, but I'm not sure if it was capitalized. Luckily, there's an option for finding files regardless of capitalization:
+#### 3. -iname
+I am trying to find some files that were written in September, and they must have the word "September" in the name, but I'm not sure if it was capitalized. Luckily, there's an option for finding files regardless of capitalization:
 ```
 $ find ./government -iname "sept*.txt" 
 ./government/Gen_Account_Office/Sept27-2002_d02966.txt
