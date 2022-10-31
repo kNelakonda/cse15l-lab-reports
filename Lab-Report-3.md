@@ -62,3 +62,41 @@ $ find . -size -1k -name "*.txt"
 ```
 (Oh, only two in ./plos)
 
+2. If I want, I can find all the subdirectories in my working directory to see how many folders there are and what the names of them are. "-type" is the option, and the argument is "d", for directories. I can also do "f" for all the files.
+Let's try this on the command line:
+```
+$ find . -type d           
+.
+./government
+./government/About_LSC
+./government/Env_Prot_Agen
+./government/Alcohol_Problems
+./government/Gen_Account_Office
+./government/Post_Rate_Comm
+./government/Media
+./plos
+./biomed
+./911report
+```
+
+There are a lot within /government, so let's boil it down to only the directories within /government:
+```
+$ find ./government -type d        
+./government
+./government/About_LSC
+./government/Env_Prot_Agen
+./government/Alcohol_Problems
+./government/Gen_Account_Office
+./government/Post_Rate_Comm
+./government/Media
+```
+
+That is still a lot, but I only want to find the ones that start with the letter "A":
+```
+$ find . -type d -name "A*"
+./government/About_LSC
+./government/Alcohol_Problems
+```
+
+3. 
+
