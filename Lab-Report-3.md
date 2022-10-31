@@ -8,10 +8,12 @@ One interesting way I was able to use find was to only find files of a certain s
 $ find . -size -10k
 ```
 The `.` specifies the directory, the `-size` option tells us we want to find files of a certain size, and `-10k` means everything less than 10 kilobytes, with `-` meaning less than, `10` being the size, and `k` being the size. If we want to check for larger files, the following letters are for other sized files:
-c - bytes
-k - kilobytes
-M - megabytes
-G - gigabytes
+
+* c - bytes
+* k - kilobytes
+* M - megabytes
+* G - gigabytes
+
 Here is the output when we type in the command to search for all the files within ./biomed that are less than 10 kilobytes:
 ```
 $ find ./biomed -size -10k
