@@ -8,7 +8,7 @@ Below are the keystrokes:
 
 Here are some of the noteworthy parts:
 When typing `/tec<Enter>` it got me to the first occurence of the `tecn` characters in the file, and then `n` right after to get to the next occurence of it, which is why I am down at the bottom of the file, and you can see the first ocurrence at the top:
-![Image](/Images/%3Atec%20%3Center%3E%20example.png)
+![Image](/Images/tec%3Center%3Eexample.png)
 
 After typing `ce`, I deleted the entire word, and was put into insert mode:
 ![Image](/Images/deleted-technical.png)
