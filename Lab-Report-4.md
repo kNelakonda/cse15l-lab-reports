@@ -8,7 +8,7 @@ Below are the keystrokes:
 
 Here are some of the noteworthy parts:
 When typing `/tec<Enter>` it got me to the first occurence of the `tecn` characters in the file, and then `n` right after to get to the next occurence of it, which is why I am down at the bottom of the file, and you can see the first ocurrence at the top:
-![Image](/Images/tec%3Center%3Eexample.png)
+![Image](/Images/tec-enter-example.png)
 
 After typing `ce`, I deleted the entire word, and was put into insert mode:
 ![Image](/Images/deleted-technical.png)
@@ -19,7 +19,7 @@ Hitting `<Esc>hh` moved my cursor two characters to the left (as seen by the fir
 ![Image](/Images/xxxxx.png)
 
 Pressing `i` put me in insert mode, followed by `args[1]` to type where my cursor was:
-![Image](/Images/args%5B1%5D.png)
+![Image](/Images/args1.png)
 
 I then typed `<Esc>` to exit insert mode, and then `:wq` to save and quit:
 ![Image](/Images/save-and-quit.png)
