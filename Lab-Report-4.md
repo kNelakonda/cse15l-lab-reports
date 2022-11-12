@@ -1,4 +1,4 @@
-# Lab Report 3 (The week of Lab 7)
+# Lab Report 4 (The week of Lab 7)
 ## More on Vim
 
 #### Part 1: How I did a task from Week 6 with vim in as few keystrokes as possible
