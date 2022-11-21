@@ -10,6 +10,9 @@
 ## This is the fourth Lab Report
 [Lab Report 4](Lab-Report-4.md)
 
+## This is the fifth Lab Report
+[Lab Report 5](Lab-Report-5.md)
+
 ### This is a second page to access:
 [the second page](secondpage.md)
 
